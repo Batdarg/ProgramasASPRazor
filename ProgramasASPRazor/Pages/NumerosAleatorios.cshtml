@@ -1,0 +1,78 @@
+﻿@page
+@model ProgramasASPRazor.Pages.NumerosAleatoriosModel
+@{
+}
+
+<div class="row">
+    <div class="col-lg-9 mx-auto rounded border p-3">
+        <h2 class="text-center mb-5">Genera números aleatorios.</h2>
+        <form method="post">
+            <!--Boton de Calcular-->
+            <div class="row">
+                <div class="offset-sm-4 col-sm-8">
+                    <button type="submit" class="btn btn-primary">Generar Números Aleatorios</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-lg-9 mx-auto rounded border p-3">
+        @if (Model.ListaNumeros != null)
+        {
+            <h2 class="text-center mb-5">Arreglo aleatorio:</h2>
+            <table border="1" cellpadding="5" cellspacing="5">
+                <tr>
+                    @foreach (var numero in Model.ListaNumeros)
+                    {
+                        <td>@numero</td>
+                    }
+                </tr>
+            </table>
+            <br/>
+            <p>Suma: @Model.Suma</p>
+            <p>Media Aritmetica (Promedio): @Model.Promedio</p>
+            <br/>
+            <h2 class="text-center mb-5">Arreglo ordenado:</h2>
+            <table border="1" cellpadding="5" cellspacing="5">
+                <tr>
+                    @foreach (var numero in Model.ListaNumerosOrdenada)
+                    {
+                        <td>@numero</td>
+                    }
+                </tr>
+            </table>
+            <br />
+            @if(Model.Moda != null && Model.Moda.Count != 0)
+            {
+                <p>Moda:
+                    @foreach (var numero in Model.Moda)
+                    {
+                        if (Model.Moda.Count > 1)
+                        {
+                            if (Model.contador != 1)
+                            {
+                                <text>@numero,</text>
+                                Model.contador--;
+                            }
+                            else
+                            {
+                                <text>@numero</text>
+                            }
+                            
+                        }
+                        else
+                        {
+                            <text>@numero</text>
+                        }     
+                    }
+                </p>
+            }
+            else
+            {
+               <p>Moda: No hay moda.</p> 
+            }
+
+            <p>Mediana: @Model.Mediana</p>
+        }
+    </div>
+</div>

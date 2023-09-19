@@ -1,0 +1,29 @@
+﻿@page
+@model ProgramasASPRazor.Pages.CifradoCesarModel
+@{
+}
+<form method="post">
+    <div>
+        <label for="txtMensaje">Mensaje:</label>
+        <input type="text" id="txtMensaje" name="mensaje" asp-for="Mensaje" />
+    </div>
+    <div>
+        <label for="txtDesplazamiento">Valor de desplazamiento (N):</label>
+        <input type="number" id="txtDesplazamiento" name="desplazamiento" asp-for="Desplazamiento" />
+    </div>
+    <div>
+        <label for="rblAccion">Acción:</label>
+        <select id="rblAccion" name="accion" asp-for="Accion">
+            <option value="codificar">Codificar</option>
+            <option value="decodificar">Decodificar</option>
+        </select>
+    </div>
+    <div>
+        <button type="submit">Realizar Acción</button>
+    </div>
+</form>
+
+<div>
+    <label>Resultado:</label>
+    <div>@Model.Resultado</div>
+</div>
