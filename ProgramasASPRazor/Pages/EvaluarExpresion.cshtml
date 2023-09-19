@@ -1,0 +1,68 @@
+﻿@page
+@model ProgramasASPRazor.Pages.EvaluarExpresionModel
+@{
+}
+
+<div class="row">
+    <div class="col-lg-9 mx-auto rounded border p-3">
+        <h2 class="text-center mb-5">Evaluar la Expresión (ax+by)^n.</h2>
+        <br />
+        <form method="post">
+            <!--Campo A-->
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">A:</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="number" asp-for="A" />
+                </div>
+            </div>
+            <!--Campo B-->
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">B:</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="number" asp-for="B" />
+                </div>
+            </div>
+            <!--Campo X-->
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">X:</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="number" asp-for="X" />
+                </div>
+            </div>
+            <!--Campo Y-->
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Y:</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="number" asp-for="Y" />
+                </div>
+            </div>
+            <!--Campo N-->
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">N:</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="number" asp-for="N" />
+                </div>
+            </div>
+            <!--Boton de Calcular-->
+            <div class="row">
+                <div class="offset-sm-4 col-sm-8">
+                    <button type="submit" class="btn btn-primary">Evaluar expresión</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+    @if (Model.solucionD != 0 && Model.solucionI != 0)
+    {
+        <div class="col-lg-9 mx-auto rounded border p-3">
+            <h2 class="text-center mb-5">Resultados:</h2>
+            <label class="col-sm-4 col-form-label">Resolucion directa = @Model.solucionD</label>
+            <br/>
+            <label class="col-form-label">Resolucion con iteraciones y sumatoria: @Model.Cadena = @Model.solucionI</label>
+            <br/>
+        </div>
+    }
+</div>
+

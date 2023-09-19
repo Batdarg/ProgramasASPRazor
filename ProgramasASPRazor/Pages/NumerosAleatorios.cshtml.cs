@@ -13,7 +13,7 @@ namespace ProgramasASPRazor.Pages
         public double Promedio { get; set; }
         public required List<int> Moda { get; set; }
         public double Mediana { get; set; }
-        public int contador { get; set; }
+        public string ModaCadena { get; set; } = "";
         public void OnGet()
         {
         }
@@ -36,7 +36,8 @@ namespace ProgramasASPRazor.Pages
             ListaNumerosOrdenada.Sort();
 
             Moda = ListaNumerosOrdenada.GroupBy(x => x).Where(g => g.Count() > 1).Select(x => x.Key).ToList();
-            contador = Moda.Count;
+            ModaCadena = String.Join(", ", Moda);
+            
 
             int mitad = ListaNumerosOrdenada.Count / 2;
             Mediana = (ListaNumerosOrdenada[mitad - 1] + ListaNumerosOrdenada[mitad])/2;

@@ -42,36 +42,14 @@
                 </tr>
             </table>
             <br />
-            @if(Model.Moda != null && Model.Moda.Count != 0)
+            @if (Model.ModaCadena != "")
             {
-                <p>Moda:
-                    @foreach (var numero in Model.Moda)
-                    {
-                        if (Model.Moda.Count > 1)
-                        {
-                            if (Model.contador != 1)
-                            {
-                                <text>@numero,</text>
-                                Model.contador--;
-                            }
-                            else
-                            {
-                                <text>@numero</text>
-                            }
-                            
-                        }
-                        else
-                        {
-                            <text>@numero</text>
-                        }     
-                    }
-                </p>
+                <p>Moda: @Model.ModaCadena</p>
             }
             else
             {
-               <p>Moda: No hay moda.</p> 
+                <p>Moda: No hay moda.</p>
             }
-
             <p>Mediana: @Model.Mediana</p>
         }
     </div>
